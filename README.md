@@ -8,7 +8,7 @@ At the moment, this solution will become a one page responsive solution. As of 2
 with information on market conditions being displayed first. Followed by the performance quickview of your portfolio
 accompanied by management tools.
 
-![](./demo/marketconditions.mp4)
+![](/demo/marketconditions.mp4)
  
 
 
