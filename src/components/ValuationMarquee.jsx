@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ValuationBox from "./ValuationBox";
+import { Grow } from '@material-ui/core';
+import ValuationBox from './ValuationBox';
 
 export default class ValuationMarquee extends Component {
     state = {
@@ -23,14 +24,18 @@ export default class ValuationMarquee extends Component {
         };
 
         return (
-            <ul style={flexContainer}>
-                {this.state.trackers.map(tracker =>
-                    <ValuationBox
-                    key={this.state.trackers.indexOf(tracker)}
-                    trackerData={tracker}
-                    />
-                )}
-            </ul>
+            <div>
+                <Grow in={true}>
+                    <ul style={flexContainer}>
+                        {this.state.trackers.map(tracker =>
+                            <ValuationBox
+                            key={this.state.trackers.indexOf(tracker)}
+                            trackerData={tracker}
+                            />
+                        )}
+                    </ul>
+                </Grow>
+            </div>
         );
     }
 }

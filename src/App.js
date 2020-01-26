@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import ValuationMarquee from "./components/ValuationMarquee";
+import ValuationMarquee from './components/ValuationMarquee';
+import PortfolioQuickView from './components/PortfilioQuickView'
 import './App.css';
 
 function App() {
     return (
         <div>
             <ValuationMarquee />
+            <PortfolioQuickView />
         </div>
     );
 }

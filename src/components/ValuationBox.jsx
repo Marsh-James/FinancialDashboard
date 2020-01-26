@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Card from '@material-ui/core/Card';
 import { VictoryLine, VictoryChart } from 'victory';
 import Alpha from "alphavantage";
-import data from "alphavantage/lib/data";
 
 export default class ValuationBox extends Component {
     state = {
@@ -52,7 +51,7 @@ export default class ValuationBox extends Component {
         } else {
             return (<VictoryChart>
                 <VictoryLine
-                    style={{data: {stroke: '#c43d3b'}}}
+                    style={{data: {stroke: '#f54a47'}}}
                     interpolation="natural"
                     data={this.state.data}
                 />
@@ -62,7 +61,7 @@ export default class ValuationBox extends Component {
 
     componentDidMount() {
         this.interval = setInterval(() =>
-        {if (this.state.data.length === 0) {this.updateHistoricalData().then(r => null)}}, 1000);
+        {if (this.state.data.length === 0) {this.updateHistoricalData().then(r => null)}}, 5000);
     }
 
     render() {
@@ -87,7 +86,6 @@ export default class ValuationBox extends Component {
         };
 
         return (
-
             <Card style={darkCard} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
                 <h1 align='right' style={cardTitle}>{title}</h1>
                 <h2 align='right' style={cardTitle}>{symbol}</h2>
