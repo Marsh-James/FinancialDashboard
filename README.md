@@ -8,11 +8,6 @@ At the moment, this solution will become a one page responsive solution. As of 2
 with information on market conditions being displayed first. Followed by the performance quickview of your portfolio
 accompanied by management tools.
 
-![](/demo/marketconditions.mp4)
- 
-
-
-
 ## Instructions
 In order to access this dashboard you must, in the following order:
 
