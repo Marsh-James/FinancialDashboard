@@ -1,9 +1,9 @@
-#Financial Dashboard
+# Financial Dashboard
 The motivation behind this project was a single solution to overcome the pains of using *Google Sheets*. Despite sheets
 being arguably the most prolific personal finance invention of this century, it still can be cumbersome to manage and 
 difficult to look at. Enter the *Financial Dashboard*.
 
-##Demo
+## Demo
 At the moment, this solution will become a one page responsive solution. As of 26/01/2020 this involves working top down
 with information on market conditions being displayed first. Followed by the performance quickview of your portfolio
 accompanied by management tools.
