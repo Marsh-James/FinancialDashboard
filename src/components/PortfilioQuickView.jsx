@@ -48,7 +48,6 @@ export default class PortfolioQuickView extends Component {
                             <AssetDistributionChart
                                 chartData={this.state.assets}
                              />
-                             {/*<AssetPerformanceChart />*/}
                         </Box>
                         <LiquidAssetBar
                             cash ={this.state.cash}

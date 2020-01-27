@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { VictoryStack, VictoryArea } from 'victory';
 
-export default class AssetPerformance extends Component {
+export default class AssetPerformanceChart extends Component {
     state = {
     };
 

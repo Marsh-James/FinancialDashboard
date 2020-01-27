@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { VictoryPie } from 'victory';
 
 export default class AssetDistribution extends Component {
-    state = {
-    };
 
     render() {
         return (
