@@ -6,10 +6,8 @@ export default class AssetDistribution extends Component {
     };
 
     render() {
-        console.log(this.props.chartData, ' dat');
         return (
             <VictoryPie
-                //this.props.chartData
                 data={this.props.chartData}
                 x='assetName'
                 y='sliderVal'
