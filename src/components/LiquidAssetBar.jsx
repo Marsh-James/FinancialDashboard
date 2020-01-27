@@ -1,10 +1,7 @@
-import {LinearProgress, Container, lighten, makeStyles, withStyles} from '@material-ui/core';
+import {LinearProgress, Container, lighten, withStyles} from '@material-ui/core';
 import React, {Component} from 'react';
 
 export default class LiquidAssetBar extends Component {
-    state = {
-        cash: this.props.cash
-    };
 
     render() {
         const BorderLinearProgress = withStyles({
@@ -23,7 +20,7 @@ export default class LiquidAssetBar extends Component {
                 <BorderLinearProgress
                     variant="determinate"
                     color="secondary"
-                    value={this.state.cash}
+                    value={this.props.cash}
                 />
             </Container>
         );

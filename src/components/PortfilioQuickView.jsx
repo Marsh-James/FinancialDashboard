@@ -1,17 +1,35 @@
 import React, { Component } from 'react'
-import {Card, Box, Grow, LinearProgress} from '@material-ui/core';
+import { Card, Box, Grow } from '@material-ui/core';
 import AssetDistributionChart from "./AssetDistributionChart";
 import AssetDistributionSlider from './AssetDistributionSlider';
 import LiquidAssetBar from './LiquidAssetBar';
-import AssetPerformanceChart from './AssetPerformanceChart';
-import ValuationBox from "./ValuationBox";
 
 export default class PortfolioQuickView extends Component {
     state = {
         cash: 10,
-        data: [{x:1, y:2}, {x:2, y:1}, {x:3, y:2}, {x:4, y:3}, {x:5, y:2}],
-        assets: [{title: 'Dow Jones', value: 10},
-                {title: 'Microsoft Corp', value: 80}]
+        assets: [{assetName: 'Dow Jones', sliderVal: 10, sliderMax: 100},
+                {assetName: 'Microsoft Corp', sliderVal: 60, sliderMax: 100},
+                {assetName: 'Amazon Inc', sliderVal: 20, sliderMax: 100}]
+    };
+
+    updateDistributions = (oldVal, newVal, asset, id) => {
+        const difference = newVal - oldVal;
+        if (difference > 0) {
+            if (this.state.cash >= difference) {
+                const cash = this.state.cash - difference;
+                const updatedAsset = {assetName: asset.assetName, sliderVal: newVal, sliderMax: (newVal + cash)};
+                const updatedAssets = [...this.state.assets];
+                updatedAssets[id] = updatedAsset;
+                this.setState({cash: cash, assets: updatedAssets});
+            }
+        } else {
+            const cash = this.state.cash - difference;
+            const updatedAsset = {assetName: asset.assetName, sliderVal: newVal, sliderMax: (newVal + cash)};
+            const updatedAssets = [...this.state.assets];
+            updatedAssets[id] = updatedAsset;
+            this.setState({cash: cash, assets: updatedAssets});
+        }
+
     };
 
     render() {
@@ -27,7 +45,7 @@ export default class PortfolioQuickView extends Component {
                     <Card style={darkContainer}>
                         <Box display='flex' flexDirection='row'>
                             <AssetDistributionChart
-                                chartData={this.state.data}
+                                chartData={this.state.assets}
                              />
                              {/*<AssetPerformanceChart />*/}
                         </Box>
@@ -37,8 +55,9 @@ export default class PortfolioQuickView extends Component {
                         {this.state.assets.map(asset =>
                             <AssetDistributionSlider
                                 key={this.state.assets.indexOf(asset)}
-                                initialVal={asset.value}
-                                assetName={asset.title}
+                                id={this.state.assets.indexOf(asset)}
+                                asset={asset}
+                                onUpdate={this.updateDistributions}
                             />
                         )}
                     </Card>

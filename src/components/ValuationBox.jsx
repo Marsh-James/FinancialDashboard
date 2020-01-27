@@ -82,6 +82,7 @@ export default class ValuationBox extends Component {
             backgroundColor: '#222222',
             color: '#fff',
             paddingRight: 5,
+            PaddingLeft:5,
             margin: 0,
         };
 
