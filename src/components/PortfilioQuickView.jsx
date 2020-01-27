@@ -36,7 +36,8 @@ export default class PortfolioQuickView extends Component {
         const darkContainer = {
             padding: 10,
             backgroundColor: '#242424',
-            maxWidth: '45vw'
+            width: '20vw',
+            minWidth: 300
         };
 
         return (
