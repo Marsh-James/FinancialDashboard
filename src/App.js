@@ -18,9 +18,9 @@ function App() {
                 <Grid item>
                     <PortfolioQuickView />
                 </Grid>
-                {/*<Grid item style={{marginLeft: 10}}>*/}
-                {/*    <AssetProjectionView />*/}
-                {/*</Grid>*/}
+                <Grid item style={{marginLeft: 10}}>
+                    <AssetProjectionView />
+                </Grid>
             </Grid>
         </div>
     );
