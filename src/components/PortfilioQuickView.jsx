@@ -3,13 +3,15 @@ import { Card, Box, Grow } from '@material-ui/core';
 import AssetDistributionChart from "./AssetDistributionChart";
 import AssetDistributionSlider from './AssetDistributionSlider';
 import LiquidAssetBar from './LiquidAssetBar';
+import AssetSelector from './AssetSelector';
 
 export default class PortfolioQuickView extends Component {
     state = {
         cash: 10,
         assets: [{assetName: 'Dow Jones', sliderVal: 10, sliderMax: 100},
                 {assetName: 'Microsoft Corp', sliderVal: 60, sliderMax: 100},
-                {assetName: 'Amazon Inc', sliderVal: 20, sliderMax: 100}]
+                {assetName: 'Amazon Inc', sliderVal: 20, sliderMax: 100}],
+        selectedIdx: 0,
     };
 
     updateDistributions = (oldVal, newVal, asset, id) => {
@@ -32,6 +34,10 @@ export default class PortfolioQuickView extends Component {
 
     };
 
+    updateSelectedAsset = (e) => {
+        this.setState({selectedIdx: this.state.assets.findIndex(element => element.assetName === e.target.value)});
+    };
+
     render() {
         const darkContainer = {
             padding: 10,
@@ -52,14 +58,18 @@ export default class PortfolioQuickView extends Component {
                         <LiquidAssetBar
                             cash ={this.state.cash}
                         />
-                        {this.state.assets.map(asset =>
-                            <AssetDistributionSlider
-                                key={this.state.assets.indexOf(asset)}
-                                id={this.state.assets.indexOf(asset)}
-                                asset={asset}
-                                onUpdate={this.updateDistributions}
-                            />
-                        )}
+                        <AssetSelector
+                            assets={this.state.assets}
+                            id={this.state.selectedIdx}
+                            onSelect={this.updateSelectedAsset}
+                         />
+
+                        <AssetDistributionSlider
+                            key={this.state.selectedIdx}
+                            id={this.state.selectedIdx}
+                            asset={this.state.assets[this.state.selectedIdx]}
+                            onUpdate={this.updateDistributions}
+                        />
                     </Card>
                 </Grow>
             </div>

@@ -73,7 +73,9 @@ export default class ValuationBox extends Component {
             marginRight: 3,
             marginTop: 0,
             marginBottom: 0,
-            padding: 0
+            padding: 0,
+            minWidth: 50,
+            minHeight: 30
         };
 
         const cardTitle = {
@@ -83,13 +85,14 @@ export default class ValuationBox extends Component {
             color: '#fff',
             paddingRight: 5,
             PaddingLeft:5,
-            margin: 0,
+            margin: 0
         };
 
         return (
             <Card style={darkCard} onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
                 <h1 align='right' style={cardTitle}>{title}</h1>
                 <h2 align='right' style={cardTitle}>{symbol}</h2>
+                {/*Dynamic height adjusting required*/}
                 <div style={{marginTop: -65}}>
                     {this.selectGraph()}
                 </div>
